@@ -7,3 +7,7 @@ def multiply(request, a, b):
 	result = int(a) * int(b)
 	dajax.assign('#result','value',str(result))
 	return dajax.json()
+
+@dajaxice_register
+def test_string(request):	
+	return json.dumps({'string': 'hello world'})
