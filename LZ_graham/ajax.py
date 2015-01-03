@@ -11,3 +11,7 @@ def multiply(request, a, b):
 @dajaxice_register
 def test_string(request):	
 	return json.dumps({'string': 'hello world'})
+	
+@dajaxice_register
+def sayhello(request):
+	return json.dumps({'message':'Hello World'})
