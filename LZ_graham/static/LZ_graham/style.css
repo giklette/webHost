@@ -1,0 +1,31 @@
+#LZ_TITLE {
+	height: 200px;
+	position: relative;
+	background-image: url("http://louiszero.com/images/louis-zero-logo-white.png");
+    background-repeat: no-repeat;
+    background-color: yellow;
+    background-position: center center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EEE;
+    font-family: arial;
+}
+
+#FORM_LOGIN {
+	width: 300px;
+	padding: 2px;
+	position: relative;
+	background-color: #CCC;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+li a {
+	color: green;
+}
+

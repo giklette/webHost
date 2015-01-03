@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'LZ_graham/style.css' %}" />
+
+<div id="LZ_TITLE"></div>
+{% if result == 0 %}
+	<h1>{{ client.client_name }}</h1>
+
+	<ul>
+		<li>??? -- {{ client.creation_date }}</li>
+	</ul>
+{% elif result == 1 %}
+	<p>Mot de passe incorrect !</p>
+{% elif result == 2 %}
+	<p>Client introuvable !</p>
+{% endif %}
+
+<!--
+	<a href="{ % url 'polls:detail' question.id % }">Vote again?</a>
+-->
