@@ -43,6 +43,10 @@ var Dajaxice = {
 
     randomize: function(callback_function, argv, custom_settings){
         Dajaxice.call('examples.randomize', 'POST', callback_function, argv, custom_settings);
+    },
+	
+	sayhello: function(callback_function, argv, custom_settings){
+        Dajaxice.call('examples.sayhello', 'POST', callback_function, argv, custom_settings);
     }
 
 
