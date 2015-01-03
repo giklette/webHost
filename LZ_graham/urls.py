@@ -2,9 +2,8 @@ from django.conf.urls import patterns, url
 
 from LZ_graham import views
 
-from dajaxice.core import dajaxice_autodiscover, dajaxice_config
-
-dajaxice_autodiscover()
+# from dajaxice.core import dajaxice_autodiscover, dajaxice_config
+# dajaxice_autodiscover()
 
 urlpatterns = patterns('',
 	# ex: /LZ/graham/
@@ -15,5 +14,5 @@ urlpatterns = patterns('',
 	#url(r'^(?P<client_name>[a-zA-Z]+)/$', views.client, name='client'),
 	url(r'^(?P<client_name>[^/]*)[&](?P<pwd>[^/]*)/$', views.client, name='client'),
 	
-	url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
+	# url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
 )
