@@ -1,21 +1,7 @@
 {% load staticfiles %}
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="{% static 'LZ_graham/style.css' %}" />
-</head>
-<body>
-	<div id="LZ_TITLE"></div>
-	<form id="FORM_LOGIN" method="post" action="index.html" align="center">
-		{% csrf_token %}
-		<p><input type="text" name="login" value="" placeholder="Username or Email"></p>
-		<p><input type="password" name="password" value="" placeholder="Password"></p>
-		<p><label>
-			<input type="checkbox" name="remember_me" id="remember_me">
-			Remember me on this computer
-		</label></p>
-		<input type="submit" name="commit" value="Login">
-		<br/>
-		<a href="{% url 'LZ_graham:client' 'Gilles GAUDIN' 'yop' %}">TEST</a>
-	</form>
-</body>
-</html>
+<link rel="stylesheet" type="text/css" href="{% static 'LZ_graham/style.css' %}" />
+
+<div id="LZ_TITLE"></div>
+<p>Please <a href="{% url 'LZ_graham:login' %}">login</a> to continue.<br>
+Or <a href="{% url 'LZ_graham:register' %}">register</a> if you don't have an account.</p>
+

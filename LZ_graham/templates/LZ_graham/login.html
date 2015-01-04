@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'LZ_graham/style.css' %}" />
+
+<div id="LZ_TITLE"></div>
+<p></p>
+<div align="center">
+	<form id="FORM_LOGIN" method="post" action="{% url 'LZ_graham:login' %}">
+		{% csrf_token %}
+		<p align="center"><input type="text" name="username" value="{{ username }}" placeholder="Username or Email"></p>
+		<p align="center"><input type="password" name="password" value="" placeholder="Password"></p>
+		<p align="center"><label>
+			<input type="checkbox" name="remember_me" id="remember_me">
+			Remember me on this computer
+		</label></p>
+		<p align="center"><input type="submit" name="commit" value="login"></p>
+		<p align="center"><label>
+			{% if result == 0 %}
+				<i><br></i>
+			{% elif result == 1 %}
+				{% comment %}
+				NE PASSE JAMAIS ICI, 
+				PASSE PAR 'client.html'
+				{% endcomment %}
+			{% elif result == -1 %}
+				<i>Mot de passe incorrect !</i>
+			{% elif result == -2 %}
+				<i>Client introuvable !</i>
+			{% endif %}
+		</label></p>
+	</form>
+</div>

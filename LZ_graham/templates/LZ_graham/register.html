@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'LZ_graham/style.css' %}" />
+
+<div id="LZ_TITLE"></div>
+<p></p>
+<div align="center">
+	<form id="FORM_LOGIN" method="post" action="{% url 'LZ_graham:register' %}">
+		{% csrf_token %}
+		<p align="center"><input type="text" name="username" value="{{ username }}" placeholder="Username"></p>
+		<p align="center"><input type="email" name="email" value="{{ email }}" placeholder="Email"></p>
+		<p align="center"><input type="password" name="password" value="" placeholder="Password"></p>
+		<p align="center"><input type="submit" name="commit" value="register"></p>
+		<p align="center"><label>
+			{% if result == 0 %}
+				<i><br></i>
+			{% elif result == 1 %}
+				<i>????????????????????? !</i>
+			{% elif result == -1 %}
+				<i>????????????????????? !</i>
+			{% elif result == -2 %}
+				<i>????????????????????? !</i>
+			{% endif %}
+		</label></p>
+	</form>
+</div>
