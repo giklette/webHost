@@ -13,4 +13,6 @@ urlpatterns = [
 	
 	url(r'^LZ/', include('LZ_graham.urls', namespace="LZ_graham")),
 	url(r'^LZ/graham/', include('LZ_graham.urls', namespace="LZ_graham")),  
+	
+	url(r'^cinema/', include('cinema.urls', namespace="cinema")),  
 ]

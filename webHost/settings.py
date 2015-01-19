@@ -53,6 +53,7 @@ INSTALLED_APPS = (
 	'django.contrib.sites',
 	'polls',
 	'LZ_graham',
+	'cinema',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -102,3 +103,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# httpS : http://blog.sheasilverman.com/2015/01/friday-post-django-aws-and-oauth/
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

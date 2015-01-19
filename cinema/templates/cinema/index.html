@@ -1,0 +1,26 @@
+<style>
+table tr td:first-child {
+	color: #444;
+}
+table tr td:nth-child(2) {
+	color: #f88;
+}
+table tr td:last-child {
+	color: #ccc;
+}
+
+</style>
+
+{% if movie_list %}
+	<table>
+	{% for movie in movie_list %}
+		<tr>
+			<td>{{ movie.title }}</td>
+			<td>{{ movie.hours }}</td>
+			<td>{{ movie.duration }}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% else %}
+	<p>No movies are available.</p>
+{% endif %}
