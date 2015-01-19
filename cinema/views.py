@@ -170,7 +170,7 @@ def index(request):
 					self.lastHour = ''
 				#print 'HORAIRES', self.hours, self.idColToDayForAll
 				#self.movie.hours = self.hours
-				self.movie.hours = self.hours[self.idColToDayForAll+1]
+				self.movie.hours = self.hours[self.idColToDayForAll]
 				self.tbody_td = False		
 
 		def handle_data(self, data):
