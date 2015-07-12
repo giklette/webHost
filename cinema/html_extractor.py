@@ -252,7 +252,7 @@ def foo():
 			
 			
 			if len(SMS_text) > 0:
-				SMS_url = 'https://smsapi.free-mobile.fr/sendmsg?user=21731190&pass=KPgpVcLOevpySX&msg='
+				SMS_url = 'https://smsapi.free-mobile.fr/sendmsg?user=XXXXXXXXXX&pass=KKKKKKKKKKKK&msg=helloGirls'
 				SMS_url += SMS_text.replace(' ','%20').replace('\r','%0d')
 				response = urllib2.urlopen(SMS_url)
 		
