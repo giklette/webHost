@@ -222,7 +222,7 @@ def foo():
 		#print hour + 'h' + min
 		print datetime.datetime.now()
 		
-		if (hour == '17') and min == '50'):
+		if (hour == '17' and min == '50'):
 			p = MyHTMLParser()
 			f = urllib2.urlopen('http://lechaplinstlambert.cotecine.fr/horaires/')
 			html = f.read()

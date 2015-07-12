@@ -32,3 +32,7 @@ Have a good weekend!
 
 -Shea
 ---------------------------------------
+
+
+http://lechaplinstlambert.cotecine.fr/horaires/
+http://lechaplinstlambert.cotecine.fr/horaires/semaine-prochaine/
