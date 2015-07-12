@@ -183,7 +183,9 @@ for index in range(len(htmlcodes)):
 
 
 	
-	
+
+
+'''
 p = MyHTMLParser()
 f = urllib2.urlopen('http://lechaplinstlambert.cotecine.fr/horaires/')
 html = f.read()
@@ -200,3 +202,71 @@ p.feed(html)
 for movie in p.movieList:
 	print movie.title, movie.duration, '"'+movie.hours+'"'
 p.close()
+'''
+
+
+
+
+import datetime, threading, time
+
+def foo():
+	next_call = time.time()
+	while True:
+		#print datetime.datetime.now()
+		# ---------------------------------------------------
+		
+		SMS_text = ''
+
+		hour = str(time.localtime().tm_hour)
+		min = str(time.localtime().tm_min)
+		#print hour + 'h' + min
+		print datetime.datetime.now()
+		
+		if (hour == '17') and min == '50'):
+			p = MyHTMLParser()
+			f = urllib2.urlopen('http://lechaplinstlambert.cotecine.fr/horaires/')
+			html = f.read()
+
+			html = html.decode("iso8859-1")
+			for htmlcode in htmlcodes:
+				if htmlcode in html:
+					index = htmlcodes.index(htmlcode)
+					html = html.replace( htmlcode, newcode[index] )
+
+			p.feed(html)
+			for movie in p.movieList:
+				#print movie.title, movie.duration, '['+movie.hours+']'
+				
+				isValide = False
+				if len(movie.hours) > 0:
+					if int(movie.hours.split('h')[0]) >= 19:
+						isValide = True
+
+				if isValide:
+					print movie.title + '\t' + movie.duration + '\t' + movie.hours
+					if len(SMS_text) > 0: SMS_text += '\r\r'
+					SMS_text += (movie.title + '\r' + movie.duration + ' - ' + movie.hours)
+
+			p.close()
+			p = None
+			
+			
+			if len(SMS_text) > 0:
+				SMS_url = 'https://smsapi.free-mobile.fr/sendmsg?user=21731190&pass=KPgpVcLOevpySX&msg='
+				SMS_url += SMS_text.replace(' ','%20').replace('\r','%0d')
+				response = urllib2.urlopen(SMS_url)
+		
+		# ---------------------------------------------------
+		next_call = next_call + 60
+		time.sleep(next_call - time.time())
+
+timerThread = threading.Thread(target=foo)
+timerThread.start()
+
+# However your application will not exit normally, you'll need to kill the timer thread. If you want to exit normally when your application is done, without manually killing the thread, you should use
+
+'''
+timerThread = threading.Thread(target=foo)
+#timerThread.daemon = True
+timerThread.start()
+'''
